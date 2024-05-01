@@ -1,2 +1,7 @@
 venvparcel
 **/__pycache__/**
+*.log
+*.pot
+db.sqlite3
+media
+*.pyc

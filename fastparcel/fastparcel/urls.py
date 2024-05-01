@@ -25,6 +25,7 @@ urlpatterns = [
 
     path('sign-in/', auth_views.LoginView.as_view(template_name="sign_in.html")),
     path('sign-out/', auth_views.LogoutView.as_view(next_page="/")),
+    path ('sign-up/',views.sign_up),
 
     # Modified URL pattern to capture the 'next' parameter
     path('sign-in/<str:next>/', auth_views.LoginView.as_view(template_name="sign_in.html"), name='sign-in'),

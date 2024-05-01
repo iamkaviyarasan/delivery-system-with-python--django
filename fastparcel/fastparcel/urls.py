@@ -21,11 +21,14 @@ from core import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',views.home),
+    path('', views.home),
 
-    path ('sign-in/', auth_views.LoginView.as_view (template_name="sign_in.html")),
-    path ('sign-out/', auth_views.LogoutView.as_view(next_page="/")),
+    path('sign-in/', auth_views.LoginView.as_view(template_name="sign_in.html")),
+    path('sign-out/', auth_views.LogoutView.as_view(next_page="/")),
 
-    path('customer/',views.customer_page),
-    path('courier/',views.courier_page),
+    # Modified URL pattern to capture the 'next' parameter
+    path('sign-in/<str:next>/', auth_views.LoginView.as_view(template_name="sign_in.html"), name='sign-in'),
+
+    path('customer/', views.customer_page),
+    path('courier/', views.courier_page),
 ]
